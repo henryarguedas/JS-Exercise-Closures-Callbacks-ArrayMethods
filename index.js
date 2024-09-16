@@ -47,10 +47,16 @@ function processFirstItem(stringList, callback) {
  * 
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
-*/
-function processLength(/* CODE HERE */) {
-  /* CODE HERE */
+/** */
+
+
+ function processLength(list, cb) {
+  return cb(list.length);
+  
 }
+
+console.log(processLength(['one', 'two'], (num) => "I dont know " + num ));
+
 
 /**
  * ### Challenge `processLastItem`
@@ -66,10 +72,13 @@ function processLength(/* CODE HERE */) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
+
+function processLastItem(stringList, callback) {
+  return callback(stringList[stringList.length - 1, ])
+
 }
 
+console.log(processLastItem(stringList[stringList.length - 1], ));
 /**
  * ### Challenge `processSum`
  * 
@@ -87,9 +96,15 @@ function processLastItem(/* CODE HERE */) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numberList, callback) {
+  
 }
+
+function processSum(numberList, callback) {
+  return callback(numberList.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+  }, 0))
+  }
 
 /**
  * ### Challenge `processProduct`
@@ -182,6 +197,16 @@ function getFullNames(/* CODE HERE */) {
   /* CODE HERE */
 }
 
+function getFullNames(runners) {
+  let runnersArray = [];
+ runners.forEach(function (element) {
+   runnersArray.push(`${element.last_name}, ${element.first_name}`)
+ })
+ return runnersArray;
+}
+}
+
+
 /**
  * ### Challenge `firstNamesAllCaps`
  * 
@@ -197,6 +222,12 @@ function getFullNames(/* CODE HERE */) {
 function firstNamesAllCaps(/* CODE HERE */) {
   /* CODE HERE */
 }
+
+function firstNamesAllCaps(runners) {
+  return runners.map(function (runners) {
+     return runners.first_name.toUpperCase();
+   })
+ }    
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
